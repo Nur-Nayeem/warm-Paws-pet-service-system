@@ -21,6 +21,10 @@
   --color-error: oklch(65% 0.3 30);
 }
 
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .my-container {
   @apply w-11/12 mx-auto;
 }
