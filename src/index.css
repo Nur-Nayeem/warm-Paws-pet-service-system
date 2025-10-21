@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @import "tailwindcss";
 
 @plugin "daisyui" {
@@ -12,9 +14,17 @@
   --color-base-300: #f0f4f8;
   --color-primary: #ec6d13;
   --color-secondary: #5f87a6;
-  --color-tertiary: #dbdfe4;
+  --color-neutral: #2c3e50;
   --color-accent: #707e8e;
   --color-success: oklch(65% 0.25 140);
   --color-warning: oklch(80% 0.25 80);
   --color-error: oklch(65% 0.3 30);
+}
+
+.my-container {
+  @apply w-11/12 mx-auto;
+}
+
+a.active {
+  @apply text-secondary font-semibold;
 }
