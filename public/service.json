@@ -1,0 +1,74 @@
+[
+  {
+    "serviceId": 1,
+    "serviceName": "Thermal Blanket & Bedding Setup",
+    "providerName": "SnugglePets HomeCare",
+    "providerEmail": "contact@snugglepets.com",
+    "price": 28,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Soft thermal blankets and cozy bedding arrangements to keep pets warm indoors during winter.",
+    "image": "https://i.postimg.cc/L6T2xV2R/thermal-bedding.png",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 2,
+    "serviceName": "Winter Spa & Coat Conditioning",
+    "providerName": "ArcticPaws Spa",
+    "providerEmail": "spa@arcticpaws.com",
+    "price": 32,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Full winter spa with deep coat conditioning, paw moisturizing, and warm towel care.",
+    "image": "https://i.postimg.cc/VLNZKZpM/winter-spa.png",
+    "category": "Grooming"
+  },
+  {
+    "serviceId": 3,
+    "serviceName": "Heated Pet Bed Rental",
+    "providerName": "WarmTails Care",
+    "providerEmail": "support@warmtails.com",
+    "price": 20,
+    "rating": 4.7,
+    "slotsAvailable": 5,
+    "description": "Rent cozy heated beds to keep your pets warm and relaxed through chilly winter nights.",
+    "image": "https://i.postimg.cc/BbgLn4vX/heated-bed.png",
+    "category": "Comfort"
+  },
+  {
+    "serviceId": 4,
+    "serviceName": "Winter Nutrition Meal Plan",
+    "providerName": "HealthyPaws Nutrition",
+    "providerEmail": "care@healthypaws.com",
+    "price": 40,
+    "rating": 4.9,
+    "slotsAvailable": 6,
+    "description": "Custom meal plans with extra protein and vitamins to support pet health in cold weather.",
+    "image": "https://i.postimg.cc/YqFppvbC/winter-meal-plan.png",
+    "category": "Nutrition"
+  },
+  {
+    "serviceId": 5,
+    "serviceName": "Snow Walk Training & Exercise",
+    "providerName": "FrostyPaws Fitness",
+    "providerEmail": "train@frostypaws.com",
+    "price": 35,
+    "rating": 4.6,
+    "slotsAvailable": 2,
+    "description": "Guided snow walks and safe outdoor exercises to keep pets fit and active during winter.",
+    "image": "https://i.postimg.cc/g23yHpc4/snow-walk-training.png",
+    "category": "Fitness"
+  },
+  {
+    "serviceId": 6,
+    "serviceName": "Winter Health Checkup & Vaccination",
+    "providerName": "PetWell Clinic",
+    "providerEmail": "info@petwellclinic.com",
+    "price": 50,
+    "rating": 5.0,
+    "slotsAvailable": 3,
+    "description": "Comprehensive winter health checkup and seasonal vaccination for pets’ immunity and safety.",
+    "image": "https://i.postimg.cc/B6LxV9TG/winter-checkup.png",
+    "category": "Healthcare"
+  }
+]
