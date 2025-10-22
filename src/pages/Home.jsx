@@ -2,6 +2,7 @@ import React from "react";
 import HeroSlider from "../components/HeroSlider";
 import PopulerServices from "../components/PopulerServiceSection/PopulerServices";
 import WinterCareTips from "../components/WinterCareTipssection/WinterCareTips";
+import MeetOurExpert from "../components/MeetOurExpertVets/MeetOurExpert";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <HeroSlider />
       <PopulerServices />
       <WinterCareTips />
+      <MeetOurExpert />
     </div>
   );
 };
