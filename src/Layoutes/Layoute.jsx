@@ -6,7 +6,7 @@ const Layoute = () => {
   return (
     <div>
       <header>
-        <nav className="bg-base-200 shadow-sm">
+        <nav className="bg-base-200 shadow-sm w-full z-50 fixed ">
           <Navbar />
         </nav>
       </header>

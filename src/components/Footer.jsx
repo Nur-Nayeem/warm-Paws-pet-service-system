@@ -15,10 +15,10 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-xl font-bold text-base-200">Get In Touch</h3>
+            <h3 className="text-xl font-bold text-base-200">Contact Us</h3>
             <ul className="mt-3 space-y-2 text-[#b1bcc6]">
               <li className="">Email: myemail@gmail.com</li>
-              <li class="">Phone: +880 171 456-7890</li>
+              <li className="">Phone: +880 171 456-7890</li>
             </ul>
           </div>
           <div>
