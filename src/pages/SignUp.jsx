@@ -1,15 +1,50 @@
-import React from "react";
+import React, { use } from "react";
 import { CiLock } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin } from "react-icons/md";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile, signWithGoogle } = use(AuthContext);
+
+  const clearField = (e) => {
+    e.target.name.value = "";
+    e.target.email.value = "";
+    e.target.photourl.value = "";
+    e.target.password.value = "";
+  };
+
+  const handleRagistration = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photourl = e.target.photourl.value;
+    const password = e.target.password.value;
+    console.log(name, email, photourl, password);
+    clearField(e);
+    createUser(email, password)
+      .then((res) => {
+        updateUserProfile(name, photourl)
+          .then(() => {
+            console.log(res.user);
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleGoogleSignIn = () => {
+    signWithGoogle()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="py-32 my-container flex items-center justify-center">
-      <div className="w-full max-w-md backdrop-blur-sm p-8 rounded-xl shadow-2xl">
+      <div className="w-full max-w-lg backdrop-blur-sm p-8 rounded-xl shadow-2xl">
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold text-secondary">
             Create Your Account
@@ -18,7 +53,7 @@ const SignUp = () => {
             Join WarmPaws and keep your pet cozy!
           </p>
         </div>
-        <form>
+        <form onSubmit={handleRagistration}>
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2 text-neutral">
               Username
@@ -29,12 +64,13 @@ const SignUp = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="Enter your name"
                 type="text"
+                name="name"
               />
             </div>
           </div>
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2 text-neutral">
-              Email or Username
+              Email
             </label>
             <div className="relative">
               <IoPersonOutline className="absolute left-3 top-1/2 -translate-y-1/2" />
@@ -42,6 +78,7 @@ const SignUp = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="email@example.com"
                 type="email"
+                name="email"
               />
             </div>
           </div>
@@ -55,6 +92,7 @@ const SignUp = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="Photo URL"
                 type="text"
+                name="photourl"
               />
             </div>
           </div>
@@ -68,6 +106,7 @@ const SignUp = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="******"
                 type="password"
+                name="password"
               />
               <FaRegEye className="absolute right-3 top-1/2 -translate-y-1/2" />
               {/* <FaRegEyeSlash className="absolute right-3 top-1/2 -translate-y-1/2"/> */}
@@ -86,7 +125,10 @@ const SignUp = () => {
         </div>
 
         <div className="mt-4">
-          <button className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold">
+          <button
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold"
+          >
             <FcGoogle className="w-5 h-5" />
             Sign in with Google
           </button>

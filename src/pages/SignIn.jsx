@@ -1,15 +1,41 @@
-import React from "react";
+import React, { use } from "react";
 import { CiLock } from "react-icons/ci";
 import { FaRegEye } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin, MdOutlinePets } from "react-icons/md";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const SignIn = () => {
+  const { loginUser, signWithGoogle } = use(AuthContext);
+
+  const clearField = (e) => {
+    e.target.email.value = "";
+    e.target.password.value = "";
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    clearField(e);
+
+    loginUser(email, password)
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
+
+  const handleGoogleSignIn = () => {
+    signWithGoogle()
+      .then((res) => console.log(res.user))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="py-32 my-container flex items-center justify-center">
-      <div className="w-full max-w-md backdrop-blur-sm p-8 rounded-xl shadow-2xl">
+      <div className="w-full max-w-lg backdrop-blur-sm p-8 rounded-xl shadow-2xl">
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold flex items-center justify-center gap-1.5 text-secondary">
             <MdOutlinePets />
@@ -19,10 +45,10 @@ const SignIn = () => {
             Welcome back! Please login to your account.
           </p>
         </div>
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-sm font-semibold mb-2 text-neutral">
-              Email or Username
+              Email
             </label>
             <div className="relative">
               <IoPersonOutline className="absolute left-3 top-1/2 -translate-y-1/2" />
@@ -30,6 +56,7 @@ const SignIn = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="email@example.com"
                 type="email"
+                name="email"
               />
             </div>
           </div>
@@ -43,6 +70,7 @@ const SignIn = () => {
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="******"
                 type="password"
+                name="password"
               />
               <FaRegEye className="absolute right-3 top-1/2 -translate-y-1/2" />
               {/* <FaRegEyeSlash className="absolute right-3 top-1/2 -translate-y-1/2"/> */}
@@ -66,7 +94,10 @@ const SignIn = () => {
         </div>
 
         <div className="mt-4">
-          <button className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold">
+          <button
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold"
+          >
             <FcGoogle className="w-5 h-5" />
             Sign in with Google
           </button>
