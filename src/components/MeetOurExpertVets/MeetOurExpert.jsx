@@ -4,7 +4,7 @@ import { experts } from "../../data/ExpertsData";
 
 const MeetOurExpert = () => {
   return (
-    <div className="my-16  space-y-5 my-container">
+    <div className="my-20  space-y-5 my-container">
       <div className="text-center mb-16 py-8">
         <h2 className="text-5xl font-bold text-secondary">
           Meet Our Expert Vets

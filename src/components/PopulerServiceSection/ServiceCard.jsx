@@ -4,7 +4,7 @@ const ServiceCard = ({ service }) => {
   const { serviceName, rating, price, image } = service;
   return (
     <div className="flex flex-col gap-5 rounded-2xl bg-white  shadow-lg overflow-hidden transition-transform hover:-translate-y-0.5 duration-300">
-      <img className="h-64 w-full" src={image} alt="" />
+      <img className="h-72 w-full" src={image} alt="" />
       <div className="flex flex-col flex-1 justify-between p-5">
         <div>
           <p className="text-2xl font-bold text-neutral">{serviceName}</p>

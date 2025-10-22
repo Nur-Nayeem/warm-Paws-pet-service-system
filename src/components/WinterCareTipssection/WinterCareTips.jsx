@@ -5,9 +5,9 @@ import { MdSnowshoeing } from "react-icons/md";
 
 const WinterCareTips = () => {
   return (
-    <div className="bg-base-300 my-16">
+    <div className="bg-base-300 my-16 py-8">
       <div className="my-container py-16">
-        <h2 className="text-4xl font-bold text-secondary text-center pb-8">
+        <h2 className="text-5xl font-bold text-secondary text-center pb-8">
           Essential Winter Care Tips
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">

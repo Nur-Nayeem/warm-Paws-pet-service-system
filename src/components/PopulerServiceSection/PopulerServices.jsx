@@ -5,12 +5,12 @@ import useServices from "../../hooks/useServices";
 const PopulerServices = () => {
   const { services, loading } = useServices();
   return (
-    <div className="my-10  space-y-5 my-container">
-      <div className="text-center my-16">
-        <h2 className="text-4xl font-bold text-secondary">
+    <div className="my-16  space-y-5 my-container py-8">
+      <div className="text-center mb-16">
+        <h2 className="text-5xl font-bold text-secondary">
           Our Popular Winter Services
         </h2>
-        <p className="mt-4 text-accent">
+        <p className="mt-4 text-accent text-lg">
           Tailored care to keep your pet thriving in the cold.
         </p>
       </div>
