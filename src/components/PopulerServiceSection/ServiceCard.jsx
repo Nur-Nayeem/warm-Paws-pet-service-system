@@ -1,7 +1,8 @@
 import React from "react";
 import { BsStar } from "react-icons/bs";
+import { Link } from "react-router";
 const ServiceCard = ({ service }) => {
-  const { serviceName, rating, price, image } = service;
+  const { serviceId, serviceName, rating, price, image } = service;
   return (
     <div className="flex flex-col gap-5 rounded-2xl bg-white  shadow-lg overflow-hidden transition-transform hover:-translate-y-0.5 duration-300">
       <img className="h-72 w-full" src={image} alt="" />
@@ -18,9 +19,12 @@ const ServiceCard = ({ service }) => {
           </div>
           <p className="mt-3 text-xl font-semibold text-secondary">${price}</p>
         </div>
-        <button className="py-3 text-white bg-secondary hover:bg-[#50738e] transition-colors duration-300 rounded-4xl my-3 cursor-pointer">
+        <Link
+          to={`/services/${serviceId}`}
+          className="text-center py-3 text-white bg-secondary hover:bg-[#50738e] transition-colors duration-300 rounded-4xl my-3 cursor-pointer"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </div>
   );

@@ -8,13 +8,13 @@ import ExtraDetails from "../components/ServiceDetailsComponents/ExtraDetails";
 
 const ServiceDetails = () => {
   return (
-    <section className="py-16 md:py-24 px-4 ">
-      <div className="my-container mx-auto">
+    <section className="py-16 md:py-32 px-4 ">
+      <div className="my-container mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="col-span-5 lg:col-span-3">
             <div className="bg-white overflow-hidden">
-              <img src={dog} className="w-full h-[450px] rounded-md" />
-              <div className="">
+              <img src={dog} className="w-4/5 h-[450px] rounded-xl" />
+              <div className="w-4/5">
                 <div className="flex justify-between items-start mb-4 my-3.5">
                   <div>
                     <h1 className="text-2xl lg:text-3xl font-bold text-neutral">

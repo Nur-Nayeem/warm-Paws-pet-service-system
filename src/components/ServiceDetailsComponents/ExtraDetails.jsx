@@ -20,8 +20,8 @@ const ExtraDetails = () => {
             <p className="text-accent text-lg">Paws & Claws Grooming</p>
           </div>
           <div className="col-span-3">
-            <h3 className="text-neutral font-semibold text-lg">Provider:</h3>
-            <p className="text-accent text-lg">Paws & Claws Grooming</p>
+            <h3 className="text-neutral font-semibold text-lg">Contact:</h3>
+            <p className="text-accent text-lg">contact@pawsandclaws.com</p>
           </div>
           <div className="col-span-1 mt-2.5">
             <h3 className="text-neutral font-semibold text-lg">Service ID:</h3>
@@ -29,8 +29,8 @@ const ExtraDetails = () => {
           </div>
 
           <div className="col-span-3 mt-2.5">
-            <h3 className="text-neutral font-semibold text-lg">Service ID:</h3>
-            <p className="text-accent text-lg">WCG-001</p>
+            <h3 className="text-neutral font-semibold text-lg">Category:</h3>
+            <p className="text-accent text-lg">Specialized Grooming</p>
           </div>
         </div>
       </div>

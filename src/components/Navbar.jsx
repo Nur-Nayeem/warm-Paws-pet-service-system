@@ -1,9 +1,13 @@
-import React from "react";
+import React, { use } from "react";
 import { FaBars } from "react-icons/fa";
 import { MdOutlinePets } from "react-icons/md";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../Context/AuthContext";
 
 const Navbar = () => {
+  const { user, loading } = use(AuthContext);
+  console.log(loading ? "Loading" : user);
+
   return (
     <div className="flex justify-between items-center  py-3 my-container relative z-50">
       <div className="flex items-center gap-2.5">
