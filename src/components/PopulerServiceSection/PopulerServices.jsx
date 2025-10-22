@@ -1,7 +1,9 @@
 import React from "react";
 import ServiceCard from "./ServiceCard";
+import useServices from "../../hooks/useServices";
 
 const PopulerServices = () => {
+  const { services, loading } = useServices();
   return (
     <div className="my-10  space-y-5 my-container">
       <div className="text-center my-16">
@@ -12,14 +14,17 @@ const PopulerServices = () => {
           Tailored care to keep your pet thriving in the cold.
         </p>
       </div>
-      <div className="grid grid-cols-3 gap-5">
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-      </div>
+      <>
+        {loading ? (
+          <span>Loading...</span>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {services.map((service) => (
+              <ServiceCard key={service.serviceId} service={service} />
+            ))}
+          </div>
+        )}
+      </>
     </div>
   );
 };

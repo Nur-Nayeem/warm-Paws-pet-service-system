@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center  py-3 my-container">
+    <div className="flex justify-between items-center  py-3 my-container relative z-50">
       <div className="flex items-center gap-2.5">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
