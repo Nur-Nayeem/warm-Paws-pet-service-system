@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 
 const useServices = () => {
   const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [serviceLoading, setServiceLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setServiceLoading(true);
     axios
       .get("/service.json")
       .then((res) => setServices(res.data))
       .catch((err) => setError(err))
-      .finally(() => setLoading(false));
+      .finally(() => setServiceLoading(false));
   }, []);
-  return { services, loading, error };
+  return { services, serviceLoading, error };
 };
 
 export default useServices;

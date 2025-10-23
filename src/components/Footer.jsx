@@ -29,28 +29,24 @@ const Footer = () => {
               <Link
                 to="#"
                 className=" hover:text-white transition-colors duration-300"
-                href="#"
               >
                 <FaLinkedin className="text-2xl" />
               </Link>
               <Link
                 to="#"
                 className="hover:text-white transition-colors duration-300"
-                href="#"
               >
                 <FaInstagram className="text-2xl" />
               </Link>
               <Link
                 to="#"
                 className="text-text-white hover:text-white transition-colors duration-300"
-                href="#"
               >
                 <BsTwitterX className="text-2xl" />
               </Link>
               <Link
                 to="#"
                 className="hover:text-white transition-colors duration-300"
-                href="#"
               >
                 <FaFacebookF className="text-2xl" />
               </Link>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BsStar } from "react-icons/bs";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router";
 const ServiceCard = ({ service }) => {
   const { serviceId, serviceName, rating, price, image } = service;
@@ -12,8 +12,10 @@ const ServiceCard = ({ service }) => {
           <div className="flex items-center mt-2">
             <div className="flex text-yellow-500">
               {Array.from({ length: Math.floor(rating) }).map((_, index) => (
-                <BsStar key={index} />
+                <FaStar key={index} />
               ))}
+
+              {rating - Math.floor(rating) ? <FaStarHalfAlt /> : ""}
             </div>
             <span className="ml-2 text-sm text-gray-500">{rating}</span>
           </div>
@@ -21,7 +23,7 @@ const ServiceCard = ({ service }) => {
         </div>
         <Link
           to={`/services/${serviceId}`}
-          className="text-center py-3 text-white bg-secondary hover:bg-[#50738e] transition-colors duration-300 rounded-4xl my-3 cursor-pointer"
+          className="text-center py-3 text-white bg-primary/90 hover:bg-primary transition-colors duration-300 rounded-4xl my-3 cursor-pointer"
         >
           View Details
         </Link>

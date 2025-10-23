@@ -4,7 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin } from "react-icons/md";
-import { Link, useLocation, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Context/Context";
 
@@ -15,7 +15,6 @@ const SignUp = () => {
   const [eye, setEye] = useState(false);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
-  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -60,7 +59,7 @@ const SignUp = () => {
       .then(() => {
         updateUserProfile(name, photourl)
           .then(() => {
-            navigate(location.state || "/");
+            navigate("/");
             setLoader(loading);
             toast.success("Registration Succenfull");
           })
@@ -195,7 +194,6 @@ const SignUp = () => {
             <Link
               to="/auth/sign-in"
               className="ml-1.5 font-medium text-secondary hover:underline"
-              href="#"
             >
               Log in
             </Link>

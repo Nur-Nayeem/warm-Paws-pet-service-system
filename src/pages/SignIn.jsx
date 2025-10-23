@@ -139,10 +139,8 @@ const SignIn = () => {
           <p className="text-neutral">
             Don't have an account?
             <Link
-              state={location?.state}
               to="/auth/sign-up"
               className="ml-1.5 font-medium text-secondary hover:underline"
-              href="#"
             >
               Register here
             </Link>

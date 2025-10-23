@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
+import Services from "../pages/Services";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <h1>Services</h1>,
+        element: <Services />,
       },
       {
         path: "/services/:id",

@@ -1,14 +1,14 @@
 import React from "react";
-import ServiceCard from "./ServiceCard";
-import useServices from "../../hooks/useServices";
+import useServices from "../hooks/useServices";
+import ServiceCard from "../components/PopulerServiceSection/ServiceCard";
 
-const PopulerServices = () => {
+const Services = () => {
   const { services, serviceLoading } = useServices();
   return (
-    <div className="my-16  space-y-5 my-container py-8">
+    <div className="space-y-5 my-container py-32">
       <div className="text-center mb-16">
         <h2 className="text-5xl font-bold text-secondary">
-          Our Popular Winter Services
+          Our Winter Services
         </h2>
         <p className="mt-4 text-accent text-lg">
           Tailored care to keep your pet thriving in the cold.
@@ -29,4 +29,4 @@ const PopulerServices = () => {
   );
 };
 
-export default PopulerServices;
+export default Services;
