@@ -24,6 +24,14 @@ const ServiceDetails = () => {
     }
   }, [services, id]);
 
+  if (serviceLoading) {
+    return (
+      <div className="h-[500px] flex justify-center items-center">
+        <h2 className="text-4xl font-bold text-red-500">Loading...</h2>
+      </div>
+    );
+  }
+
   return (
     <section className="py-24 md:py-32 px-0 sm:px-4 ">
       <div className="my-container mx-auto ">
