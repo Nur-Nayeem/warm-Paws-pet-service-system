@@ -39,9 +39,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="flex items-center gap-1.5">
-        <button className="cursor-pointer bg-primary py-2.5 px-6 rounded-4xl text-white text-lg font-medium hover:bg-[#d2600f] transition-colors duration-300">
+        <Link
+          to="/auth/sign-in"
+          className="cursor-pointer bg-primary py-2.5 px-6 rounded-4xl text-white text-lg font-medium hover:bg-[#d2600f] transition-colors duration-300"
+        >
           Login
-        </button>
+        </Link>
       </div>
     </div>
   );

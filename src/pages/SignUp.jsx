@@ -1,14 +1,24 @@
-import React, { use } from "react";
-import { CiLock } from "react-icons/ci";
-import { FaRegEye } from "react-icons/fa";
+import React, { use, useState } from "react";
+import { CiLink, CiLock, CiMail } from "react-icons/ci";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, signWithGoogle } = use(AuthContext);
+  const { createUser, updateUserProfile, signWithGoogle, loading } =
+    use(AuthContext);
+
+  const [eye, setEye] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState("");
+  const location = useLocation();
+  console.log(location);
+
+  const navigate = useNavigate();
 
   const clearField = (e) => {
     e.target.name.value = "";
@@ -19,27 +29,64 @@ const SignUp = () => {
 
   const handleRagistration = (e) => {
     e.preventDefault();
+    setLoader(loading);
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photourl = e.target.photourl.value;
     const password = e.target.password.value;
     console.log(name, email, photourl, password);
+
+    const upperCaseRegEx = /[A-Z]/;
+
+    const LowerCaseRegEx = /[a-z]/;
+
+    if (name.length < 3) {
+      setError("Userame must have at least 3 latter");
+      return;
+    }
+    if (password.length < 6) {
+      setError("Password Length must be at least 6 character");
+      return;
+    }
+    if (!LowerCaseRegEx.test(password)) {
+      setError("Must have a Lowercase letter in the password");
+      return;
+    }
+    if (!upperCaseRegEx.test(password)) {
+      setError("Must have an Uppercase letter in the password");
+      return;
+    }
     clearField(e);
     createUser(email, password)
-      .then((res) => {
+      .then(() => {
         updateUserProfile(name, photourl)
           .then(() => {
-            console.log(res.user);
+            navigate(location.state || "/");
+            setLoader(loading);
+            toast.success("Registration Succenfull");
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            setLoader(false);
+            toast.error(err.message);
+          });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setLoader(false);
+        toast.error(error.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
     signWithGoogle()
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+      .then(() => {
+        navigate(location.state || "/");
+        setLoader(loading);
+        toast.success("Successfully SignIn with google");
+      })
+      .catch((err) => {
+        setLoader(false);
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -65,6 +112,7 @@ const SignUp = () => {
                 placeholder="Enter your name"
                 type="text"
                 name="name"
+                required
               />
             </div>
           </div>
@@ -73,12 +121,13 @@ const SignUp = () => {
               Email
             </label>
             <div className="relative">
-              <IoPersonOutline className="absolute left-3 top-1/2 -translate-y-1/2" />
+              <CiMail className="absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="email@example.com"
                 type="email"
                 name="email"
+                required
               />
             </div>
           </div>
@@ -87,12 +136,13 @@ const SignUp = () => {
               Photo Url
             </label>
             <div className="relative">
-              <IoPersonOutline className="absolute left-3 top-1/2 -translate-y-1/2" />
+              <CiLink className="absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="Photo URL"
                 type="text"
                 name="photourl"
+                required
               />
             </div>
           </div>
@@ -105,16 +155,22 @@ const SignUp = () => {
               <input
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="******"
-                type="password"
+                type={eye ? "text" : "password"}
                 name="password"
+                required
               />
-              <FaRegEye className="absolute right-3 top-1/2 -translate-y-1/2" />
-              {/* <FaRegEyeSlash className="absolute right-3 top-1/2 -translate-y-1/2"/> */}
+              <span
+                onClick={() => setEye(!eye)}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+              >
+                {eye ? <FaRegEye /> : <FaRegEyeSlash />}
+              </span>
             </div>
           </div>
+          <p>{error}</p>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
-            Register
+            {loader ? "Loading..." : "Register"}
           </button>
         </form>
 

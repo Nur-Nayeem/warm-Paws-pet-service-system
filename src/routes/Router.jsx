@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import ServiceDetails from "../pages/ServiceDetails";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,7 +21,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: <ServiceDetails />,
+        element: (
+          <PrivateRoute>
+            <ServiceDetails />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/profile",

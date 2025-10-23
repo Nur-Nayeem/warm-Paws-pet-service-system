@@ -1,14 +1,20 @@
-import React, { use } from "react";
-import { CiLock } from "react-icons/ci";
-import { FaRegEye } from "react-icons/fa";
+import React, { use, useState } from "react";
+import { CiLock, CiMail } from "react-icons/ci";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin, MdOutlinePets } from "react-icons/md";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const SignIn = () => {
-  const { loginUser, signWithGoogle } = use(AuthContext);
+  const { loginUser, signWithGoogle, loading } = use(AuthContext);
+  const [eye, setEye] = useState(false);
+  const [loader, setLoader] = useState(false);
+  const location = useLocation();
+  console.log(location);
+
+  const navigate = useNavigate();
 
   const clearField = (e) => {
     e.target.email.value = "";
@@ -17,20 +23,35 @@ const SignIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoader(loading);
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
+
     clearField(e);
 
     loginUser(email, password)
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+      .then(() => {
+        navigate(location.state || "/");
+        setLoader(loading);
+        toast.success("Login Succenfull");
+      })
+      .catch((err) => {
+        setLoader(false);
+        toast.error(err.message);
+      });
   };
 
   const handleGoogleSignIn = () => {
     signWithGoogle()
-      .then((res) => console.log(res.user))
-      .catch((err) => console.log(err));
+      .then(() => {
+        navigate(location.state || "/");
+        setLoader(loading);
+        toast.success("Successfully SignIn with google");
+      })
+      .catch((err) => {
+        setLoader(false);
+        toast.error(err.message);
+      });
   };
 
   return (
@@ -51,12 +72,13 @@ const SignIn = () => {
               Email
             </label>
             <div className="relative">
-              <IoPersonOutline className="absolute left-3 top-1/2 -translate-y-1/2" />
+              <CiMail className="absolute left-3 top-1/2 -translate-y-1/2" />
               <input
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="email@example.com"
                 type="email"
                 name="email"
+                required
               />
             </div>
           </div>
@@ -69,11 +91,17 @@ const SignIn = () => {
               <input
                 className="w-full h-12 pl-10 pr-4 rounded-lg border-2 border-secondary/50  bg-white text-accent focus:outline-none"
                 placeholder="******"
-                type="password"
+                type={eye ? "text" : "password"}
                 name="password"
+                required
               />
-              <FaRegEye className="absolute right-3 top-1/2 -translate-y-1/2" />
-              {/* <FaRegEyeSlash className="absolute right-3 top-1/2 -translate-y-1/2"/> */}
+
+              <span
+                onClick={() => setEye(!eye)}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+              >
+                {eye ? <FaRegEye /> : <FaRegEyeSlash />}
+              </span>
             </div>
             <div className="text-right mt-2">
               <a className="text-sm text-secondary hover:underline" href="#">
@@ -83,7 +111,7 @@ const SignIn = () => {
           </div>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
-            Login
+            {loader ? "Loading.." : "Login"}
           </button>
         </form>
 
