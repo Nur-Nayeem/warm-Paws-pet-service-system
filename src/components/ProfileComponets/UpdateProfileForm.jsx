@@ -1,6 +1,6 @@
 import React, { use, useState } from "react";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../Context/AuthContext";
+import { AuthContext } from "../../Context/Context";
 
 const UpdateProfileForm = ({ setShowUpdateForm }) => {
   const { updateUserProfile } = use(AuthContext);

@@ -14,7 +14,7 @@ const ExtraDetails = () => {
         <h2 className="text-neutral text-2xl font-semibold mb-2.5">
           Provider Information
         </h2>
-        <div className="grid grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-5">
           <div className="col-span-1">
             <h3 className="text-neutral font-semibold text-lg">Provider:</h3>
             <p className="text-accent text-lg">Paws & Claws Grooming</p>

@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import ProfileInfo from "../components/ProfileComponets/ProfileInfo";
 import UpdateProfileForm from "../components/ProfileComponets/UpdateProfileForm";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../Context/Context";
 
 const Profile = () => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
@@ -12,7 +12,7 @@ const Profile = () => {
       <main className="flex-1">
         <section className="py-20 px-4 md:px-10 lg:px-20 bg-base-300">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-4xl lg:text-5xl font-black text-neutral text-center">
+            <h1 className="text-4xl lg:text-5xl font-black text-neutral text-center mt-6">
               My Profile
             </h1>
             <div className="mt-12 bg-white rounded-xl shadow-xl p-8 md:p-12 space-y-5">

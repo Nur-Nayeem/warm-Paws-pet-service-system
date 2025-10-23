@@ -5,8 +5,8 @@ import { FcGoogle } from "react-icons/fc";
 import { IoPersonOutline } from "react-icons/io5";
 import { MdOutlineLogin } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
 import toast from "react-hot-toast";
+import { AuthContext } from "../Context/Context";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signWithGoogle, loading } =
@@ -16,7 +16,6 @@ const SignUp = () => {
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
   const location = useLocation();
-  console.log(location);
 
   const navigate = useNavigate();
 

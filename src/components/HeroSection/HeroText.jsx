@@ -10,7 +10,7 @@ const HeroText = () => {
         Your ultimate guide to keeping your furry friends warm, safe, and joyful
         all winter long.
       </p>
-      <button className="bg-primary py-5 px-10 rounded-4xl cursor-pointer hover:bg-[#d2600f] transition-colors duration-300">
+      <button className="bg-primary py-5 px-10 rounded-4xl cursor-pointer hover:bg-[#d2600f] transition-colors duration-300 shadow-lg">
         Explore Winter Care
       </button>
     </>

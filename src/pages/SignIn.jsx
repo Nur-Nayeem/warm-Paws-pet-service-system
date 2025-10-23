@@ -4,7 +4,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { MdOutlineLogin, MdOutlinePets } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext, EmailValueContext } from "../Context/Context";
 import toast from "react-hot-toast";
 
 const SignIn = () => {
@@ -12,9 +12,9 @@ const SignIn = () => {
   const [eye, setEye] = useState(false);
   const [loader, setLoader] = useState(false);
   const location = useLocation();
-  console.log(location);
-
   const navigate = useNavigate();
+
+  const { setTypedEmail } = use(EmailValueContext);
 
   const clearField = (e) => {
     e.target.email.value = "";
@@ -79,6 +79,7 @@ const SignIn = () => {
                 type="email"
                 name="email"
                 required
+                onChange={(e) => setTypedEmail(e.target.value)}
               />
             </div>
           </div>
@@ -104,9 +105,12 @@ const SignIn = () => {
               </span>
             </div>
             <div className="text-right mt-2">
-              <a className="text-sm text-secondary hover:underline" href="#">
+              <Link
+                to="/auth/forget-password"
+                className="text-sm text-secondary hover:underline"
+              >
                 Forgot Password?
-              </a>
+              </Link>
             </div>
           </div>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
@@ -135,6 +139,7 @@ const SignIn = () => {
           <p className="text-neutral">
             Don't have an account?
             <Link
+              state={location?.state}
               to="/auth/sign-up"
               className="ml-1.5 font-medium text-secondary hover:underline"
               href="#"
