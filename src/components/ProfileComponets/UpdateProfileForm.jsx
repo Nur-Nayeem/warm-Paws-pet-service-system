@@ -3,18 +3,24 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../../Context/Context";
 
 const UpdateProfileForm = ({ setShowUpdateForm }) => {
-  const { updateUserProfile } = use(AuthContext);
+  const { updateUserProfile, user } = use(AuthContext);
   const [error, setError] = useState("");
 
   const handleUpdateUserProfile = (e) => {
     e.preventDefault();
-    const name = e.target.name.value.trim();
-    const photourl = e.target.photourl.value.trim();
-    if (name.length < 3) {
-      setError("name must have to be at least 3 latter");
+    let name = e.target.name.value.trim();
+    let photourl = e.target.photourl.value.trim();
+
+    if (!name.length && !photourl.length) {
+      setError("Enter name or photo url first");
+      toast.error("Enter name or photo url first");
       return;
     }
-
+    if (!name.length && photourl.length) {
+      name = user?.displayName;
+    } else if (name.length && !photourl.length) {
+      photourl = user?.photoURL;
+    }
     updateUserProfile(name, photourl)
       .then(() => {
         toast.success("Update profile successfully");
@@ -38,7 +44,6 @@ const UpdateProfileForm = ({ setShowUpdateForm }) => {
             type="text"
             name="name"
             placeholder="Enter Name"
-            required
           />
         </div>
         <div>
@@ -48,10 +53,9 @@ const UpdateProfileForm = ({ setShowUpdateForm }) => {
             type="text"
             name="photourl"
             placeholder="Enter Photo URL"
-            required
           />
         </div>
-        <p>{error}</p>
+        <p className="text-red-500">{error}</p>
         <div className="flex justify-center sm:justify-start pt-6 gap-2.5">
           <button
             type="button"
