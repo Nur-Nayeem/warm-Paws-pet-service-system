@@ -17,7 +17,6 @@ const ForgetPassword = () => {
   const handleForgetPassword = (e) => {
     e.preventDefault();
     const email = typedEmail.trim();
-    console.log(email);
     resetPassword(email)
       .then(() => {
         toast.success("Password reset mail is send to your email");
