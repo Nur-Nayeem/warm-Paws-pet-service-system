@@ -4,7 +4,7 @@ import petSwiter from "../../assets/pet_switer.jpg";
 
 const PetProducts = () => {
   return (
-    <div className="bg-white px-4 md:px-10 lg:px-20 py-20">
+    <div className="bg-white my-container md:px-10 lg:px-20 py-20">
       <div className="flex flex-col lg:flex-row items-center gap-16">
         <div className="w-full lg:w-2/5">
           <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-secondary">

@@ -1,12 +1,26 @@
 import React, { use, useState } from "react";
 import ProfileInfo from "../components/ProfileComponets/ProfileInfo";
 import UpdateProfileForm from "../components/ProfileComponets/UpdateProfileForm";
+import { MoonLoader } from "react-spinners";
 import { AuthContext } from "../Context/Context";
 
 const Profile = () => {
   const [showUpdateForm, setShowUpdateForm] = useState(false);
 
-  const { user } = use(AuthContext);
+  const { user, loading } = use(AuthContext);
+
+  if (loading) {
+    return (
+      <div className="h-[500px] flex justify-center items-center">
+        <h2 className="text-[80px] font-medium text-secondary flex items-center">
+          <span>L</span>
+          <MoonLoader color="#5f87a6" speedMultiplier={0.7} />
+          <span>ADING...</span>
+        </h2>
+      </div>
+    );
+  }
+
   return (
     <div>
       <main className="flex-1">
@@ -19,7 +33,7 @@ const Profile = () => {
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="relative">
                   <img
-                    src={user?.photoURL}
+                    src={user.photoURL}
                     alt="U"
                     className="w-40 h-40 rounded-full border-4 border-secondary shadow-lg"
                   />

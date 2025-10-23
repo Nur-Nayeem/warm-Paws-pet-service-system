@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import { AuthContext } from "./Context";
 
 const googleProvider = new GoogleAuthProvider();
+googleProvider.addScope("profile");
+googleProvider.addScope("email");
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

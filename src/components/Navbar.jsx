@@ -4,10 +4,10 @@ import { MdLogout, MdOutlinePets } from "react-icons/md";
 import { Link, NavLink } from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Context/Context";
+import "animate.css";
 
 const Navbar = () => {
-  const { user, loading, logOutUSer } = use(AuthContext);
-  console.log(loading ? "Loading" : user);
+  const { user, logOutUSer } = use(AuthContext);
 
   const handleLogOut = () => {
     logOutUSer()
@@ -50,9 +50,9 @@ const Navbar = () => {
             </NavLink>
           </ul>
         </div>
-        <div className="flex items-center gap-0.5 text-secondary">
+        <div className="flex items-center gap-0.5 text-secondary animate__animated animate__pulse animate__infinite	infinite">
           <MdOutlinePets className="text-2xl " />
-          <Link to="/" className="text-2xl font-bold">
+          <Link to="/" className="text-2xl font-bold ">
             WarmPaws
           </Link>
         </div>

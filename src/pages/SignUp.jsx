@@ -7,14 +7,15 @@ import { MdOutlineLogin } from "react-icons/md";
 import { Link, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Context/Context";
+import { MoonLoader } from "react-spinners";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, signWithGoogle, loading } =
     use(AuthContext);
 
   const [eye, setEye] = useState(false);
-  const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
+  const [loader, setLoader] = useState(false);
 
   const navigate = useNavigate();
 
@@ -27,12 +28,10 @@ const SignUp = () => {
 
   const handleRagistration = (e) => {
     e.preventDefault();
-    setLoader(loading);
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photourl = e.target.photourl.value;
     const password = e.target.password.value;
-    console.log(name, email, photourl, password);
 
     const upperCaseRegEx = /[A-Z]/;
 
@@ -54,35 +53,34 @@ const SignUp = () => {
       setError("Must have an Uppercase letter in the password");
       return;
     }
+    setLoader(true);
     clearField(e);
     createUser(email, password)
       .then(() => {
         updateUserProfile(name, photourl)
           .then(() => {
             navigate("/");
-            setLoader(loading);
             toast.success("Registration Succenfull");
+            setLoader(loading);
           })
           .catch((err) => {
-            setLoader(false);
             toast.error(err.message);
+            setLoader(false);
           });
       })
       .catch((error) => {
-        setLoader(false);
         toast.error(error.message);
+        setLoader(false);
       });
   };
 
   const handleGoogleSignIn = () => {
     signWithGoogle()
       .then(() => {
-        navigate(location.state || "/");
-        setLoader(loading);
+        navigate("/");
         toast.success("Successfully SignIn with google");
       })
       .catch((err) => {
-        setLoader(false);
         toast.error(err.message);
       });
   };
@@ -168,7 +166,11 @@ const SignUp = () => {
           <p>{error}</p>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
-            {loader ? "Loading..." : "Register"}
+            {loader ? (
+              <MoonLoader color="#ffffff" size={24} speedMultiplier={0.7} />
+            ) : (
+              "Register"
+            )}
           </button>
         </form>
 
@@ -181,7 +183,7 @@ const SignUp = () => {
         <div className="mt-4">
           <button
             onClick={handleGoogleSignIn}
-            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold"
+            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold cursor-pointer"
           >
             <FcGoogle className="w-5 h-5" />
             Sign in with Google

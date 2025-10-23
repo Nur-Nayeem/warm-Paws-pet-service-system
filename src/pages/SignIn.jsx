@@ -6,6 +6,7 @@ import { MdOutlineLogin, MdOutlinePets } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext, EmailValueContext } from "../Context/Context";
 import toast from "react-hot-toast";
+import { MoonLoader } from "react-spinners";
 
 const SignIn = () => {
   const { loginUser, signWithGoogle, loading } = use(AuthContext);
@@ -23,7 +24,7 @@ const SignIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoader(loading);
+    setLoader(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
 
@@ -32,12 +33,12 @@ const SignIn = () => {
     loginUser(email, password)
       .then(() => {
         navigate(location.state || "/");
-        setLoader(loading);
         toast.success("Login Succenfull");
+        setLoader(loading);
       })
       .catch((err) => {
-        setLoader(false);
         toast.error(err.message);
+        setLoader(false);
       });
   };
 
@@ -45,11 +46,9 @@ const SignIn = () => {
     signWithGoogle()
       .then(() => {
         navigate(location.state || "/");
-        setLoader(loading);
         toast.success("Successfully SignIn with google");
       })
       .catch((err) => {
-        setLoader(false);
         toast.error(err.message);
       });
   };
@@ -115,7 +114,11 @@ const SignIn = () => {
           </div>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
-            {loader ? "Loading.." : "Login"}
+            {loader ? (
+              <MoonLoader color="#ffffff" size={24} speedMultiplier={0.7} />
+            ) : (
+              "Login"
+            )}
           </button>
         </form>
 
@@ -128,7 +131,7 @@ const SignIn = () => {
         <div className="mt-4">
           <button
             onClick={handleGoogleSignIn}
-            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold"
+            className="flex items-center justify-center gap-2.5 w-full h-12 rounded-full border-2 border-secondary/50 bg-white hover:bg-gray-100  transition-all duration-300 transform hover:scale-105 font-semibold cursor-pointer"
           >
             <FcGoogle className="w-5 h-5" />
             Sign in with Google
