@@ -26,11 +26,21 @@ const SignUp = () => {
     e.target.password.value = "";
   };
 
-  const handleRagistration = (e) => {
+  const isImageUrl = async (url) => {
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      const type = res.headers.get("Content-Type");
+      return type && type.startsWith("image/");
+    } catch {
+      return false;
+    }
+  };
+
+  const handleRagistration = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const photourl = e.target.photourl.value;
+    let photourl = e.target.photourl.value;
     const password = e.target.password.value;
 
     const upperCaseRegEx = /[A-Z]/;
@@ -53,6 +63,12 @@ const SignUp = () => {
       setError("Must have an Uppercase letter in the password");
       return;
     }
+
+    const validImage = await isImageUrl(photourl);
+    if (!validImage) {
+      photourl = "";
+    }
+
     setLoader(true);
     clearField(e);
     createUser(email, password)
@@ -87,6 +103,7 @@ const SignUp = () => {
 
   return (
     <div className="py-32 my-container flex items-center justify-center">
+      <title>WarmPaws - SignUp</title>
       <div className="w-full max-w-lg backdrop-blur-sm p-8 rounded-xl shadow-2xl">
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold text-secondary">

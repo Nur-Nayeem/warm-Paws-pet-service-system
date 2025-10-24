@@ -6,7 +6,17 @@ const UpdateProfileForm = ({ setShowUpdateForm }) => {
   const { updateUserProfile, user } = use(AuthContext);
   const [error, setError] = useState("");
 
-  const handleUpdateUserProfile = (e) => {
+  const isImageUrl = async (url) => {
+    try {
+      const res = await fetch(url, { method: "HEAD" });
+      const type = res.headers.get("Content-Type");
+      return type && type.startsWith("image/");
+    } catch {
+      return false;
+    }
+  };
+
+  const handleUpdateUserProfile = async (e) => {
     e.preventDefault();
     let name = e.target.name.value.trim();
     let photourl = e.target.photourl.value.trim();
@@ -21,6 +31,13 @@ const UpdateProfileForm = ({ setShowUpdateForm }) => {
     } else if (name.length && !photourl.length) {
       photourl = user?.photoURL;
     }
+
+    const validImage = await isImageUrl(photourl);
+    if (!validImage) {
+      photourl = "";
+    }
+    console.log(photourl);
+
     updateUserProfile(name, photourl)
       .then(() => {
         toast.success("Update profile successfully");

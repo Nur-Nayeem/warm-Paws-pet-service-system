@@ -1,13 +1,15 @@
 import React, { use } from "react";
 import { FaBars } from "react-icons/fa";
 import { MdLogout, MdOutlinePets } from "react-icons/md";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useNavigate } from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Context/Context";
 import "animate.css";
 
 const Navbar = () => {
   const { user, logOutUSer } = use(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     logOutUSer()
@@ -83,12 +85,19 @@ const Navbar = () => {
       <div className="flex items-center gap-1.5">
         {user ? (
           <>
-            <img
-              src={user?.photoURL}
-              alt="Profile"
-              className="aspect-square rounded-full size-12 border-2 border-secondary cursor-pointer"
-              title={user?.displayName}
-            />
+            <figure
+              className={` ${
+                user?.photoURL && "border-2 shadow-lg"
+              } w-12 h-12 rounded-full border-secondary cursor-pointer`}
+            >
+              <img
+                onClick={() => navigate("/profile")}
+                src={user?.photoURL ? user?.photoURL : "/avatar.png"}
+                alt="Profile"
+                className="w-full h-full rounded-full"
+                title={user?.displayName}
+              />
+            </figure>
             <button
               onClick={handleLogOut}
               className="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-accent hover:bg-secondary/20 transition-colors duration-300"
