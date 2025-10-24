@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { CiLock, CiMail } from "react-icons/ci";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { MoonLoader } from "react-spinners";
 
 const SignIn = () => {
-  const { loginUser, signWithGoogle, loading } = use(AuthContext);
+  const { loginUser, signWithGoogle, loading, setLoading } = use(AuthContext);
   const [eye, setEye] = useState(false);
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
@@ -17,6 +17,10 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const { setTypedEmail } = use(EmailValueContext);
+
+  useEffect(() => {
+    setTypedEmail("");
+  }, [setTypedEmail]);
 
   const clearField = (e) => {
     e.target.email.value = "";
@@ -46,19 +50,21 @@ const SignIn = () => {
     }
     setLoader(true);
 
-    clearField(e);
-
     loginUser(email, password)
       .then(() => {
         navigate(location.state || "/");
         toast.success("Login Succenfull");
+        clearField(e);
         setLoader(loading);
       })
       .catch(() => {
         toast.error("Login Faild! Your Email or password is wrong.");
+        setError("Login Faild! Your Email or password is wrong.");
+        setLoading(false);
         setLoader(false);
       });
     setError("");
+    setLoading(false);
   };
 
   const handleGoogleSignIn = () => {
@@ -70,6 +76,7 @@ const SignIn = () => {
       .catch(() => {
         toast.error("SignIn Faild! try again");
       });
+    setLoading(false);
   };
 
   return (

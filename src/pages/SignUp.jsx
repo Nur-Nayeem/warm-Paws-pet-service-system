@@ -63,6 +63,7 @@ const SignUp = () => {
             navigate("/");
             toast.success("Registration Succenfull");
             setLoader(loading);
+            clearField(e);
           })
           .catch((err) => {
             toast.error(err.message);
@@ -71,6 +72,7 @@ const SignUp = () => {
       })
       .catch(() => {
         toast.error("Registration Faild! Try again later");
+        setError("Registration Faild! Try again later");
         setLoader(false);
       });
     setError("");
@@ -84,6 +86,7 @@ const SignUp = () => {
       })
       .catch(() => {
         toast.error("Google SignIn Faild! Try again later");
+        setError("Google SignIn Faild! Try again later");
       });
   };
 
