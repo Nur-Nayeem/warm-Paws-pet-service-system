@@ -18,7 +18,7 @@ const PetProducts = () => {
           </p>
           <Link
             to="/products"
-            className="mt-10 flex min-w-[84px] max-w-full sm:max-w-[350px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary/90 text-white text-lg font-bold leading-normal hover:bg-primary transition-transform hover:scale-105 shadow-lg"
+            className="mt-10 flex min-w-[84px] max-w-full sm:max-w-[350px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 sm:h-14 px-5 sm:px-8 bg-primary/90 text-white text-lg font-medium leading-normal hover:bg-primary transition-transform hover:scale-105 shadow-lg"
           >
             Shop All Products
           </Link>
