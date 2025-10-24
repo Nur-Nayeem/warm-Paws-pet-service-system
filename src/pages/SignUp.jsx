@@ -26,16 +26,6 @@ const SignUp = () => {
     e.target.password.value = "";
   };
 
-  const isImageUrl = async (url) => {
-    try {
-      const res = await fetch(url, { method: "HEAD" });
-      const type = res.headers.get("Content-Type");
-      return type && type.startsWith("image/");
-    } catch {
-      return false;
-    }
-  };
-
   const handleRagistration = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -62,11 +52,6 @@ const SignUp = () => {
     if (!upperCaseRegEx.test(password)) {
       setError("Must have an Uppercase letter in the password");
       return;
-    }
-
-    const validImage = await isImageUrl(photourl);
-    if (!validImage) {
-      photourl = "";
     }
 
     setLoader(true);
@@ -194,7 +179,7 @@ const SignUp = () => {
 
         <div className="mt-6 flex items-center">
           <div className="flex-1 border-t border-secondary/50 "></div>
-          <span className="mx-4 text-neutral">Or SignIn with</span>
+          <span className="mx-4 text-neutral">Or</span>
           <div className="flex-1 border-t border-secondary/50"></div>
         </div>
 

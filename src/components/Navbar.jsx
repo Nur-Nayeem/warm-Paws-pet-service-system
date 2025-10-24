@@ -99,14 +99,18 @@ const Navbar = () => {
           <>
             <figure
               className={` ${
-                user?.photoURL && "border-2 shadow-lg"
+                user?.photoURL && "shadow-lg"
               } w-12 h-12 rounded-full border-secondary cursor-pointer`}
             >
               <img
                 onClick={() => navigate("/profile")}
-                src={user?.photoURL ? user?.photoURL : "/avatar.png"}
+                src={user?.photoURL}
                 alt="Profile"
                 className="w-full h-full rounded-full"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "/avatar.png";
+                }}
                 title={user?.displayName}
               />
             </figure>
@@ -127,7 +131,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/auth/sign-up"
-              className="cursor-pointer bg-accent py-2.5 px-6 rounded-4xl text-white font-medium hover:bg-secondary/50 transition-all duration-300 transform hover:scale-105 shadow-md"
+              className="hidden sm:flex cursor-pointer bg-accent py-2.5 px-6 rounded-4xl text-white font-medium hover:bg-secondary/50 transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               Register
             </Link>

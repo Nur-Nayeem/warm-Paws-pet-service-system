@@ -33,9 +33,13 @@ const Profile = () => {
                     } w-40 h-40 rounded-full border-secondary cursor-pointer`}
                   >
                     <img
-                      src={photoURL ? photoURL : "/avatar.png"}
+                      src={photoURL}
                       alt="Profile"
                       className="w-full h-full rounded-full"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "/avatar.png";
+                      }}
                     />
                   </figure>
                 </div>

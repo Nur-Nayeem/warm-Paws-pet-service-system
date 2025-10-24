@@ -1,16 +1,58 @@
-# React + Vite
+# WarmPaws – Pet Care in Winter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**WarmPaws** is a responsive web application built with **React** and **Firebase**, designed to help pet owners find and book specialized winter care services for their pets. From cozy grooming sessions to winter health checkups, WarmPaws ensures that your furry friends stay healthy, comfortable, and happy during the cold season.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live URL
 
-## React Compiler
+👉 [Visit WarmPaws Website](https://warmpaws-2c2b2.web.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The purpose of **WarmPaws** is to provide an all-in-one online platform where pet owners can:
+
+- Explore a wide range of pet care services tailored for winter.
+- Book appointments with trusted providers.
+- Learn tips for keeping pets safe during the cold months.
+
+This platform supports both pet owners and service providers, creating a convenient and caring ecosystem for winter pet wellness.
+
+---
+
+## Key Features
+
+- **Browse Winter Pet Services** – View detailed information about grooming, health, boarding, and spa treatments.
+- **Winter Pet Product Showcase** - Discover and purchase a variety of winter essentials for pets, including sweaters, jackets, and heated beds all available directly through the platform.
+- **Book & Manage Appointments** – Schedule winter services easily and view available time slots.
+- **Winter Care Tips** – Helpful guides and seasonal pet care advice.
+- **Firebase Authentication** – Secure login and registration (email/password or Google sign-in).
+- **Responsive UI** – Fully optimized for mobile, tablet, and desktop.
+- **Dynamic Routing** – Smooth navigation using React Router.
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, React Router, Tailwind CSS / DaisyUI
+- **Backend:** Firebase (Authentication)
+- **Hosting:** Firebase Hosting
+- **Version Control:** Git & GitHub
+
+---
+
+## 📦 NPM Packages Used
+
+- react
+- react-router
+- firebase
+- react-hot-toast
+- animate.css
+- swiper
+- react-spinners
+- react-icons
+- axios
+
+---

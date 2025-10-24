@@ -145,7 +145,7 @@ const SignIn = () => {
 
         <div className="mt-6 flex items-center">
           <div className="flex-1 border-t border-secondary/50 "></div>
-          <span className="mx-4 text-neutral">Or SignIn with</span>
+          <span className="mx-4 text-neutral">Or</span>
           <div className="flex-1 border-t border-secondary/50"></div>
         </div>
 
