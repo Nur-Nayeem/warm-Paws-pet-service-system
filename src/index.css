@@ -12,8 +12,9 @@
   --color-base-100: #ffffff;
   --color-base-200: #f0f4f8;
   --color-base-300: #f0f4f8;
-  --color-primary: #ec6d13;
-  --color-secondary: #5f87a6;
+  --color-primary: #ff5252;
+  /* --color-secondary: #5f87a6; */
+  --color-secondary: #227093;
   --color-neutral: #2c3e50;
   --color-accent: #707e8e;
   --color-success: oklch(65% 0.25 140);

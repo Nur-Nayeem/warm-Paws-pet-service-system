@@ -84,10 +84,11 @@ const SignUp = () => {
             setLoader(false);
           });
       })
-      .catch((error) => {
-        toast.error(error.message);
+      .catch(() => {
+        toast.error("Registration Faild! Try again later");
         setLoader(false);
       });
+    setError("");
   };
 
   const handleGoogleSignIn = () => {
@@ -96,8 +97,8 @@ const SignUp = () => {
         navigate("/");
         toast.success("Successfully SignIn with google");
       })
-      .catch((err) => {
-        toast.error(err.message);
+      .catch(() => {
+        toast.error("Google SignIn Faild! Try again later");
       });
   };
 
@@ -174,13 +175,13 @@ const SignUp = () => {
               />
               <span
                 onClick={() => setEye(!eye)}
-                className="absolute right-3 top-1/2 -translate-y-1/2"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
               >
                 {eye ? <FaRegEye /> : <FaRegEyeSlash />}
               </span>
             </div>
           </div>
-          <p>{error}</p>
+          <p className="text-sm text-rose-500 mb-2.5">{error}</p>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
             {loader ? (

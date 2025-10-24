@@ -26,26 +26,32 @@ const Navbar = () => {
       <div className="flex items-center gap-2.5">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="lg:hidden">
-            <FaBars className="text-secondary" />
+            <FaBars className="text-secondary hover:scale-105 cursor-pointer transition-all duration-300" />
           </div>
           <ul
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-neutral"
           >
             <NavLink
-              className={"hover:text-secondary transition-colors duration-300"}
+              className={
+                "hover:text-secondary hover:scale-105 transition-all duration-300"
+              }
               to="/"
             >
               Home
             </NavLink>
             <NavLink
-              className={"hover:text-secondary transition-colors duration-300"}
+              className={
+                "hover:text-secondary hover:scale-105 transition-all duration-300"
+              }
               to="/services"
             >
               Services
             </NavLink>
             <NavLink
-              className={"hover:text-secondary transition-colors duration-300"}
+              className={
+                "hover:text-secondary hover:scale-105 transition-all duration-300"
+              }
               to="/profile"
             >
               My Profile
@@ -62,19 +68,25 @@ const Navbar = () => {
       <div className="hidden lg:flex">
         <ul className="flex gap-10 px-1 text-neutral">
           <NavLink
-            className={"hover:text-secondary transition-colors duration-300"}
+            className={
+              "hover:text-secondary hover:scale-105 transition-all duration-300 "
+            }
             to="/"
           >
             Home
           </NavLink>
           <NavLink
-            className={"hover:text-secondary transition-colors duration-300"}
+            className={
+              "hover:text-secondary hover:scale-105 transition-all duration-300"
+            }
             to="/services"
           >
             Services
           </NavLink>
           <NavLink
-            className={"hover:text-secondary transition-colors duration-300"}
+            className={
+              "hover:text-secondary hover:scale-105 transition-all duration-300"
+            }
             to="/profile"
           >
             My Profile
@@ -82,7 +94,7 @@ const Navbar = () => {
         </ul>
       </div>
 
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-2.5">
         {user ? (
           <>
             <figure
@@ -106,12 +118,20 @@ const Navbar = () => {
             </button>
           </>
         ) : (
-          <Link
-            to="/auth/sign-in"
-            className="cursor-pointer bg-primary/90 py-2.5 px-6 rounded-4xl text-white text-lg font-medium hover:bg-primary transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Login
-          </Link>
+          <>
+            <Link
+              to="/auth/sign-in"
+              className="cursor-pointer bg-primary/90 py-2.5 px-6 rounded-4xl text-white font-medium hover:bg-primary transition-all duration-300 transform hover:scale-105 shadow-md"
+            >
+              Login
+            </Link>
+            <Link
+              to="/auth/sign-up"
+              className="cursor-pointer bg-accent py-2.5 px-6 rounded-4xl text-white font-medium hover:bg-secondary/50 transition-all duration-300 transform hover:scale-105 shadow-md"
+            >
+              Register
+            </Link>
+          </>
         )}
       </div>
     </div>

@@ -12,6 +12,7 @@ const SignIn = () => {
   const { loginUser, signWithGoogle, loading } = use(AuthContext);
   const [eye, setEye] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [error, setError] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -24,9 +25,26 @@ const SignIn = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoader(true);
     const email = e.target.email.value;
     const password = e.target.password.value;
+
+    const upperCaseRegEx = /[A-Z]/;
+
+    const LowerCaseRegEx = /[a-z]/;
+
+    if (password.length < 6) {
+      setError("Password Length must be at least 6 character");
+      return;
+    }
+    if (!LowerCaseRegEx.test(password)) {
+      setError("Must have a Lowercase letter in the password");
+      return;
+    }
+    if (!upperCaseRegEx.test(password)) {
+      setError("Must have an Uppercase letter in the password");
+      return;
+    }
+    setLoader(true);
 
     clearField(e);
 
@@ -36,10 +54,11 @@ const SignIn = () => {
         toast.success("Login Succenfull");
         setLoader(loading);
       })
-      .catch((err) => {
-        toast.error(err.message);
+      .catch(() => {
+        toast.error("Login Faild! Your Email or password is wrong.");
         setLoader(false);
       });
+    setError("");
   };
 
   const handleGoogleSignIn = () => {
@@ -48,8 +67,8 @@ const SignIn = () => {
         navigate(location.state || "/");
         toast.success("Successfully SignIn with google");
       })
-      .catch((err) => {
-        toast.error(err.message);
+      .catch(() => {
+        toast.error("SignIn Faild! try again");
       });
   };
 
@@ -99,7 +118,7 @@ const SignIn = () => {
 
               <span
                 onClick={() => setEye(!eye)}
-                className="absolute right-3 top-1/2 -translate-y-1/2"
+                className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
               >
                 {eye ? <FaRegEye /> : <FaRegEyeSlash />}
               </span>
@@ -113,6 +132,7 @@ const SignIn = () => {
               </Link>
             </div>
           </div>
+          <p className="text-sm text-rose-500 mb-2.5">{error}</p>
           <button className="w-full flex items-center justify-center rounded-full h-14 px-6 bg-primary/90 hover:bg-primary transition-all duration-300 transform hover:scale-105 text-white font-semibold  text-lg  leading-normal shadow-lg cursor-pointer">
             <MdOutlineLogin className="material-symbols-outlined mr-2" />
             {loader ? (
