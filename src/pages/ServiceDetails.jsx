@@ -35,7 +35,7 @@ const ServiceDetails = () => {
             <div className="bg-white overflow-hidden">
               <img
                 src={image}
-                className="w-full h-[450px] md:h-[500px] rounded-xl"
+                className="w-full h-[300px] md:h-[500px] rounded-xl"
               />
               <div className="">
                 <div className="flex justify-between items-start mb-4 my-3.5">
