@@ -45,7 +45,8 @@ This platform supports both pet owners and service providers, creating a conveni
 
 ## 📦 NPM Packages Used
 
-- react
+- tailwindcss
+- daisyui
 - react-router
 - firebase
 - react-hot-toast
