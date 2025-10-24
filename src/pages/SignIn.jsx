@@ -55,6 +55,7 @@ const SignIn = () => {
 
   return (
     <div className="py-32 my-container flex items-center justify-center">
+      <title>WarmPaws - SignIn</title>
       <div className="w-full max-w-lg backdrop-blur-sm p-8 rounded-xl shadow-2xl">
         <div className="text-center mb-4">
           <h1 className="text-3xl font-bold flex items-center justify-center gap-1.5 text-secondary">

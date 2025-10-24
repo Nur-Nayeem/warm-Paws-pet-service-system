@@ -1,25 +1,18 @@
 import React from "react";
 import useServices from "../hooks/useServices";
 import ServiceCard from "../components/PopulerServiceSection/ServiceCard";
-import { MoonLoader } from "react-spinners";
+import Loading from "../components/Loading";
 
 const Services = () => {
   const { services, serviceLoading } = useServices();
 
   if (serviceLoading) {
-    return (
-      <div className="h-[500px] flex justify-center items-center">
-        <h2 className="text-[80px] font-medium text-secondary flex items-center">
-          <span>L</span>
-          <MoonLoader color="#5f87a6" speedMultiplier={0.7} />
-          <span>ADING...</span>
-        </h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
     <div className="space-y-5 my-container py-32">
+      <title>WarmPaws - Service</title>
       <div className="text-center mb-16">
         <h2 className="text-5xl font-bold text-secondary">
           Our Winter Services

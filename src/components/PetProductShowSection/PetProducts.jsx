@@ -1,6 +1,7 @@
 import React from "react";
 import tharmalBad from "../../assets/Thermal_Pet_Bed.jpg";
 import petSwiter from "../../assets/pet_switer.jpg";
+import { Link } from "react-router";
 
 const PetProducts = () => {
   return (
@@ -15,9 +16,12 @@ const PetProducts = () => {
             cozy with our curated collection of must-have products, from thermal
             beds to protective paw balms.
           </p>
-          <button className="mt-10 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary/90 text-white text-lg font-bold leading-normal hover:bg-primary transition-transform hover:scale-105 shadow-lg">
+          <Link
+            to="/products"
+            className="mt-10 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary/90 text-white text-lg font-bold leading-normal hover:bg-primary transition-transform hover:scale-105 shadow-lg"
+          >
             Shop All Products
-          </button>
+          </Link>
         </div>
         <div className="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="flex flex-col gap-4 rounded-xl bg-base-200 shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1">

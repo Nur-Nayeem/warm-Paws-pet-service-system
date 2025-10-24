@@ -6,7 +6,8 @@ import ExtraDetails from "../components/ServiceDetailsComponents/ExtraDetails";
 import useServices from "../hooks/useServices";
 import { useParams } from "react-router";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-import { MoonLoader } from "react-spinners";
+import Loading from "../components/Loading";
+import ServiceNotFound from "../components/ServiceNotFound";
 
 const ServiceDetails = () => {
   const { services, serviceLoading } = useServices();
@@ -16,25 +17,11 @@ const ServiceDetails = () => {
   const service = services.find((s) => s.serviceId == id);
 
   if (serviceLoading) {
-    return (
-      <div className="h-[500px] flex justify-center items-center">
-        <h2 className="text-[80px] font-medium text-secondary flex items-center">
-          <span>L</span>
-          <MoonLoader color="#5f87a6" speedMultiplier={0.7} />
-          <span>ADING...</span>
-        </h2>
-      </div>
-    );
+    return <Loading />;
   }
 
   if (!service) {
-    return (
-      <div className="h-[500px] flex justify-center items-center">
-        <h2 className="text-[80px] font-medium text-secondary flex items-center">
-          No Service Found
-        </h2>
-      </div>
-    );
+    return <ServiceNotFound />;
   }
 
   const { image, serviceName, category, price, rating, slotsAvailable } =

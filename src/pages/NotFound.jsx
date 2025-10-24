@@ -5,6 +5,7 @@ import { Link } from "react-router";
 const NotFound = () => {
   return (
     <div className="bg-base-200 h-screen">
+      <title>404 Not Found</title>
       <div className="my-container flex h-screen md:h-[75vh] items-center justify-center">
         <div className="flex flex-col md:flex-row justify-center md:justify-around items-center gap-12 md:gap-24 w-full">
           <div className="flex flex-col items-start text-left gap-6">

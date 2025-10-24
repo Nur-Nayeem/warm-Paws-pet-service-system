@@ -30,6 +30,7 @@ const ForgetPassword = () => {
 
   return (
     <div className="flex-1 flex items-center justify-center py-32 px-4 md:px-10 lg:px-20 ">
+      <title>WarmPaws - Forget Password</title>
       <div className="max-w-md w-full mx-auto">
         <div className="bg-white rounded-xl shadow-xl p-8 md:p-12 text-center">
           <MdLockReset className="material-symbols-outlined text-6xl text-secondary mx-auto" />

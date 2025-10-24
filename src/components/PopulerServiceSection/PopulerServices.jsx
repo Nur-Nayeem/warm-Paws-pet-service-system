@@ -7,7 +7,7 @@ const PopulerServices = ({ services, serviceLoading }) => {
       <div className="py-20 space-y-5 my-container">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-secondary">
-            Our Popular Winter Services
+            Popular Winter Care Services
           </h2>
           <p className="mt-4 text-accent text-lg">
             Tailored care to keep your pet thriving in the cold.

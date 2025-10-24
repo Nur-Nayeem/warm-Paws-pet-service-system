@@ -8,7 +8,7 @@ const WinterCareTips = () => {
     <div className="my-16 py-8">
       <div className="my-container py-16">
         <h2 className="text-5xl font-bold text-secondary text-center pb-8">
-          Essential Winter Care Tips
+          Winter Care Tips for Pets
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           <div className="p-6">

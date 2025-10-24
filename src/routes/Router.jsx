@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, Navigate } from "react-router";
 import Layoute from "../Layoutes/Layoute";
 import Home from "../pages/Home";
 import ServiceDetails from "../pages/ServiceDetails";
@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
 import Services from "../pages/Services";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
     element: <Layoute />,
     children: [
       {
+        index: true,
+        element: <Navigate to="sign-in" />,
+      },
+      {
         path: "sign-in",
         element: <SignIn />,
       },
@@ -59,7 +64,7 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: "/*",
-    element: <h1>404 Not Found</h1>,
+    path: "*",
+    element: <NotFound />,
   },
 ]);
