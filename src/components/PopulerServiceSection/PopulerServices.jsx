@@ -28,7 +28,7 @@ const PopulerServices = ({ services, serviceLoading }) => {
                   className="h-[500px]"
                   key={service.serviceId}
                   data-aos="zoom-in-up"
-                  data-aos-delay={index * 150}
+                  data-aos-delay={index * 10}
                 >
                   <ServiceCard service={service} />
                 </div>
