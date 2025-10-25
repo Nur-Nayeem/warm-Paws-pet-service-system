@@ -79,6 +79,7 @@ const SignUp = () => {
   };
 
   const handleGoogleSignIn = () => {
+    setError("");
     signWithGoogle()
       .then(() => {
         navigate("/");
