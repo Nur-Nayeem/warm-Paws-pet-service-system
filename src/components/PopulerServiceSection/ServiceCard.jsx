@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const ServiceCard = ({ service }) => {
   const { serviceId, serviceName, rating, price, image } = service;
   return (
-    <div className="flex flex-col gap-5 rounded-2xl bg-base-200 shadow-lg hover:shadow-2xl overflow-hidden transition-all hover:-translate-y-0.5 duration-300">
+    <div className="flex flex-col gap-5 rounded-2xl bg-base-200 shadow-lg hover:shadow-2xl overflow-hidden transition-all hover:-translate-y-0.5 duration-300 h-full">
       <img className="h-60 w-full" src={image} alt="" />
       <div className="flex flex-col flex-1 justify-between p-5">
         <div>
