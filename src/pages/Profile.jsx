@@ -55,7 +55,7 @@ const Profile = () => {
                 <UpdateProfileForm setShowUpdateForm={setShowUpdateForm} />
               ) : (
                 <>
-                  <div className="w-full flex justify-end">
+                  <div className="w-full flex justify-center sm:justify-end">
                     <button
                       onClick={() => setShowUpdateForm(true)}
                       className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-8 bg-primary/90 text-white text-lg font-bold leading-normal hover:bg-primary shadow-lg"
