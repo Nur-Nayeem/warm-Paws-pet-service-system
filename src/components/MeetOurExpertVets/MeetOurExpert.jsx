@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ExpertCard from "./ExpertCard";
 import { experts } from "../../data/ExpertsData";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MeetOurExpert = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+    });
+  }, []);
   return (
     <div className="bg-base-300 ">
       <div className="py-20  space-y-5 my-container">
@@ -16,9 +25,23 @@ const MeetOurExpert = () => {
         </div>
 
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-          {experts.map((expert, index) => (
-            <ExpertCard key={index} expert={expert} />
-          ))}
+          {experts.map((expert, index) => {
+            let animation;
+            if (index === 0) animation = "fade-right";
+            else if (index === 1) animation = "fade-up";
+            else animation = "fade-left";
+
+            return (
+              <div
+                key={index}
+                data-aos={animation}
+                data-aos-delay={index * 150}
+                data-aos-duration="800"
+              >
+                <ExpertCard expert={expert} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

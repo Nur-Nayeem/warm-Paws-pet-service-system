@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaFireAlt } from "react-icons/fa";
 import { IoSnowSharp } from "react-icons/io5";
 import { MdSnowshoeing } from "react-icons/md";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const WinterCareTips = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+    });
+  }, []);
   return (
     <div className="my-16 py-8">
       <div className="my-container py-16">
-        <h2 className="text-5xl font-bold text-secondary text-center pb-8">
+        <h2
+          className="text-5xl font-bold text-secondary text-center pb-8"
+          data-aos="fade-down"
+        >
           Winter Care Tips for Pets
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <div className="p-6">
+          <div className="p-6" data-aos="fade-up" data-aos-delay="0">
             <MdSnowshoeing className="text-6xl text-primary mx-auto" />
             <h3 className="mt-5 text-2xl font-bold text-neutral">
               Paw Protection
@@ -21,7 +33,7 @@ const WinterCareTips = () => {
               Use pet-safe balms or booties for sensitive paws.
             </p>
           </div>
-          <div className="p-6">
+          <div className="p-6" data-aos="fade-up" data-aos-delay="150">
             <FaFireAlt className="text-6xl text-primary mx-auto" />
             <h3 className="mt-5 text-2xl font-bold text-neutral">
               Stay Hydrated & Fed
@@ -31,7 +43,7 @@ const WinterCareTips = () => {
               need more food to generate body heat in the cold.
             </p>
           </div>
-          <div className="p-6">
+          <div className="p-6" data-aos="fade-up" data-aos-delay="300">
             <IoSnowSharp className="text-6xl text-primary mx-auto" />
             <h3 className="mt-5 text-2xl font-bold text-neutral">
               Know The Signs

@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import tharmalBad from "../../assets/Thermal_Pet_Bed.jpg";
 import petSwiter from "../../assets/pet_switer.jpg";
 import { Link } from "react-router";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 const PetProducts = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: false }); // animation speed + trigger once
+  }, []);
+
   return (
     <div className="bg-white my-container md:px-10 lg:px-20 py-20">
       <div className="flex flex-col lg:flex-row items-center gap-16">
-        <div className="w-full lg:w-2/5">
+        <div className="w-full lg:w-2/5" data-aos="fade-right">
           <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-secondary">
             Winter Pet Product Showcase
           </h2>
@@ -23,15 +30,25 @@ const PetProducts = () => {
             Shop All Products
           </Link>
         </div>
-        <div className="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="flex flex-col gap-4 rounded-xl bg-base-200 shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1">
+        <div
+          className="w-full lg:w-3/5 grid grid-cols-1 sm:grid-cols-2 gap-6"
+          data-aos="fade-left"
+        >
+          <div
+            className="flex flex-col gap-4 rounded-xl bg-base-200 shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1"
+            data-aos="zoom-in"
+          >
             <img src={tharmalBad} className="w-full h-48 sm:h-64" />
             <div className="flex flex-col flex-1 p-4">
               <p className="font-bold text-lg text-accent">Thermal Pet Bed</p>
               <p className="text-accent text-sm mt-1">Self-warming core.</p>
             </div>
           </div>
-          <div className="flex flex-col gap-4 rounded-xl bg-base-200 shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1 mt-8">
+          <div
+            className="flex flex-col gap-4 rounded-xl bg-base-200 shadow-lg overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1 mt-8"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             <img src={petSwiter} className="w-full h-48 sm:h-64" />
             <div className="flex flex-col flex-1 p-4">
               <p className="font-bold text-lg text-accent">Knit Pet Sweater</p>

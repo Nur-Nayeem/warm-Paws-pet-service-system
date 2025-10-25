@@ -33,3 +33,7 @@
 a.active {
   @apply text-secondary font-semibold;
 }
+html,
+body {
+  overflow-x: hidden !important;
+}
