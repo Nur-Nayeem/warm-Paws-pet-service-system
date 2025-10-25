@@ -55,7 +55,6 @@ const SignUp = () => {
     }
 
     setLoader(true);
-    clearField(e);
     createUser(email, password)
       .then(() => {
         updateUserProfile(name, photourl)
