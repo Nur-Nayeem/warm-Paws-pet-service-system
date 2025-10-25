@@ -55,5 +55,6 @@ This platform supports both pet owners and service providers, creating a conveni
 - react-spinners
 - react-icons
 - axios
+- AOS
 
 ---
