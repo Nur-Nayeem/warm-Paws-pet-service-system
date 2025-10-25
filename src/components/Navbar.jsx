@@ -100,7 +100,7 @@ const Navbar = () => {
             <figure
               className={` ${
                 user?.photoURL && "shadow-lg"
-              } w-12 h-12 rounded-full border-secondary cursor-pointer`}
+              } w-10 h-10 rounded-full border-secondary cursor-pointer`}
             >
               <img
                 onClick={() => navigate("/profile")}
@@ -116,9 +116,10 @@ const Navbar = () => {
             </figure>
             <button
               onClick={handleLogOut}
-              className="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-transparent text-accent hover:bg-secondary/20 transition-colors duration-300"
+              className="flex items-center cursor-pointer bg-primary/90 py-1.5 sm:py-2.5 px-4 sm:px-6 rounded-4xl text-white font-medium hover:bg-primary transition-all duration-300 transform hover:scale-105 shadow-md"
             >
-              <MdLogout className="text-2xl" />
+              <span className="hidden sm:flex">Logout</span>
+              <MdLogout className="text-xl sm:text-[16px] sm:ml-1" />
             </button>
           </>
         ) : (
@@ -131,7 +132,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/auth/sign-up"
-              className="hidden sm:flex cursor-pointer bg-accent py-1.5 sm:py-2.5 px-4 sm:px-6 rounded-4xl text-white font-medium hover:bg-secondary/50 transition-all duration-300 transform hover:scale-105 shadow-md"
+              className="hidden sm:flex cursor-pointer bg-accent/90 py-1.5 sm:py-2.5 px-4 sm:px-6 rounded-4xl text-white font-medium hover:bg-accent transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               Register
             </Link>

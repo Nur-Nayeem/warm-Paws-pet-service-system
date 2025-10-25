@@ -4,6 +4,7 @@ import { Link } from "react-router";
 const ServiceNotFound = () => {
   return (
     <div className="h-[620px] max-w-2xl mx-auto text-center flex flex-col justify-center items-center">
+      <title>Service Not Found</title>
       <h2 className="text-5xl md:text-7xl font-medium text-secondary flex items-center">
         Oops! No Service Found
       </h2>
