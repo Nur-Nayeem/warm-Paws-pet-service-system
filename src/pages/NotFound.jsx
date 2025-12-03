@@ -26,9 +26,12 @@ const NotFound = () => {
               >
                 <span className="truncate">Go Home</span>
               </Link>
-              <button className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-gray-200  text-neutral text-base font-bold leading-normal w-full sm:w-auto hover:bg-background-dark/10 transition-colors duration-200">
+              <Link
+                to={"/contact-us"}
+                className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-gray-200  text-neutral text-base font-bold leading-normal w-full sm:w-auto hover:bg-background-dark/10 transition-colors duration-200"
+              >
                 <span className="truncate">Contact Support</span>
-              </button>
+              </Link>
             </div>
           </div>
           <div className="relative w-full max-w-sm aspect-square flex items-center justify-center">

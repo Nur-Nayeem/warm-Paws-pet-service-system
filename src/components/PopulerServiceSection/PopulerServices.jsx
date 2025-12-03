@@ -23,7 +23,7 @@ const PopulerServices = ({ services, serviceLoading }) => {
             <span>Loading...</span>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {services.map((service, index) => (
+              {services.slice(0, 8).map((service, index) => (
                 <div
                   key={service.serviceId}
                   data-aos="zoom-in-up"

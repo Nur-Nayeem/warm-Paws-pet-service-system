@@ -70,5 +70,78 @@
     "description": "Our emergency winter pet rescue service provides on-call assistance for pets exposed to extreme weather. We offer safe pickup, heated shelter, medical checkups, and post-recovery grooming. Ideal for strays or lost pets during snowfalls, this compassionate service ensures every animal receives warmth, food, and immediate care.",
     "image": "https://i.ibb.co.com/zgp8bps/hh.jpg",
     "category": "Rescue & Emergency"
+  },
+
+  {
+    "serviceId": 7,
+    "serviceName": "Winter Pet Massage & Warm Therapy",
+    "providerName": "CozyCare Wellness Center",
+    "providerEmail": "wellness@cozycare.com",
+    "price": 30,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "This relaxing winter massage session helps pets relieve muscle stiffness caused by cold temperatures. Our certified pet therapists use warm compresses, gentle pressure techniques, and soothing balms to improve blood circulation and reduce joint discomfort. Perfect for senior pets or breeds sensitive to winter chills, this treatment ensures relaxation, comfort, and improved mobility throughout the season.",
+    "image": "https://i.ibb.co.com/21xD1WQP/massage.jpg",
+    "category": "Wellness"
+  },
+  {
+    "serviceId": 8,
+    "serviceName": "Snow Walk Supervision & Winter Exercise",
+    "providerName": "FrostyPaws Activity Club",
+    "providerEmail": "activity@frostypaws.com",
+    "price": 38,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Our supervised snow-walk service ensures pets enjoy active winter outings in a safe and controlled environment. Professional handlers guide your dog through short or medium outdoor sessions while monitoring temperature exposure and energy levels. We provide paw-protection balm, heated rest breaks, and hydration checks to ensure your dog stays healthy during winter exercise.",
+    "image": "https://i.ibb.co.com/mFz4pBxC/src-winter-safety.webp",
+    "category": "Outdoor Activity"
+  },
+  {
+    "serviceId": 9,
+    "serviceName": "Winter Puppy Socialization Session",
+    "providerName": "SnowyTails Training Center",
+    "providerEmail": "train@snowytails.com",
+    "price": 28,
+    "rating": 4.8,
+    "slotsAvailable": 6,
+    "description": "A fun and safe winter socialization session for puppies to build confidence, learn basic manners, and interact with other pups. Activities include supervised play, gentle obedience training, and short outdoor exposure with warm breaks. Perfect for helping young dogs adapt to winter environments while developing essential social skills.",
+    "image": "https://i.ibb.co.com/bjC2St54/session.jpg",
+    "category": "Training"
+  },
+  {
+    "serviceId": 10,
+    "serviceName": "Winter Home Visit Pet Sitting",
+    "providerName": "WarmNest Pet Sitters",
+    "providerEmail": "support@warmnest.com",
+    "price": 32,
+    "rating": 4.9,
+    "slotsAvailable": 5,
+    "description": "Our home visit sitting service ensures your pets stay warm, fed, and cared for in the comfort of your home during winter. Sitters provide feeding, warmth checks, medication support, short walks, and playtime. Ideal for pet owners working long shifts or traveling during colder days.",
+    "image": "https://i.ibb.co.com/23s67jJG/pappy.webp",
+    "category": "Pet Sitting"
+  },
+  {
+    "serviceId": 11,
+    "serviceName": "Winter Safe Dog Walking Service",
+    "providerName": "ChillGuard Walkers",
+    "providerEmail": "walk@chillguard.com",
+    "price": 22,
+    "rating": 4.7,
+    "slotsAvailable": 7,
+    "description": "A secure winter dog-walking service designed to keep pets active while avoiding frostbite and cold stress. Walkers use paw balms, reflective winter gear, and carefully timed breaks to ensure safety. Routes are adjusted for icy paths and harsh weather, making it perfect for busy pet parents.",
+    "image": "https://i.ibb.co.com/N6w1phxS/0-Dog-walk-1.webp",
+    "category": "Dog Walking"
+  },
+  {
+    "serviceId": 12,
+    "serviceName": "Warm Indoor Play Session for Pets",
+    "providerName": "CozyDen Activity House",
+    "providerEmail": "play@cozyden.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 10,
+    "description": "Beat the winter cold with energizing indoor playtime for pets. Our climate-controlled play arena features tunnels, toys, agility props, and a dedicated supervision team. Ideal for high-energy pets that need physical activity without exposure to freezing temperatures, keeping them fit and happy all season.",
+    "image": "https://i.ibb.co.com/xKG3DM8j/shutterstock-1097766848-2.jpg",
+    "category": "Indoor Activity"
   }
 ]

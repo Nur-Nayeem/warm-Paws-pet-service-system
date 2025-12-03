@@ -48,7 +48,9 @@ const ServiceDetails = () => {
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="text-3xl font-black text-accent">${price}</p>
+                    <p className="text-3xl font-black text-secondary">
+                      ${price}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center">

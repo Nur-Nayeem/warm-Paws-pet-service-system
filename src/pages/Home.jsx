@@ -18,8 +18,8 @@ const Home = () => {
     <div>
       <title>WarmPaws - Home</title>
       <HeroSlider />
-      <PetProducts />
       <PopulerServices services={services} serviceLoading={serviceLoading} />
+      <PetProducts />
       <WinterCareTips />
       <MeetOurExpert />
     </div>
