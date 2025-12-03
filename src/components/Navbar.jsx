@@ -46,16 +46,26 @@ const Navbar = () => {
               }
               to="/services"
             >
-              Services
+              All Services
             </NavLink>
             <NavLink
               className={
                 "hover:text-secondary hover:scale-105 transition-all duration-300"
               }
-              to="/profile"
+              to="/about-us"
             >
-              My Profile
+              About us
             </NavLink>
+            {user && (
+              <NavLink
+                className={
+                  "hover:text-secondary hover:scale-105 transition-all duration-300"
+                }
+                to="/profile"
+              >
+                My Profile
+              </NavLink>
+            )}
           </ul>
         </div>
         <div className="flex items-center gap-0.5 text-secondary animate__animated animate__pulse animate__infinite	infinite">
@@ -81,16 +91,34 @@ const Navbar = () => {
             }
             to="/services"
           >
-            Services
+            All Services
           </NavLink>
           <NavLink
             className={
               "hover:text-secondary hover:scale-105 transition-all duration-300"
             }
-            to="/profile"
+            to="/about-us"
           >
-            My Profile
+            About us
           </NavLink>
+          <NavLink
+            className={
+              "hover:text-secondary hover:scale-105 transition-all duration-300"
+            }
+            to="/contact-us"
+          >
+            Contact us
+          </NavLink>
+          {user && (
+            <NavLink
+              className={
+                "hover:text-secondary hover:scale-105 transition-all duration-300"
+              }
+              to="/profile"
+            >
+              My Profile
+            </NavLink>
+          )}
         </ul>
       </div>
 
