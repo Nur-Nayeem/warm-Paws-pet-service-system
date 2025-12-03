@@ -27,7 +27,7 @@ export default function HeroSlider() {
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper h-[600px]"
+        className="mySwiper h-[70vh]"
       >
         {SliderDAta.map((slide, index) => (
           <SwiperSlide key={index} className="relative">
