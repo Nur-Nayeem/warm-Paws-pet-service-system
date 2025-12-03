@@ -9,6 +9,8 @@ import Profile from "../pages/Profile";
 import ForgetPassword from "../pages/ForgetPassword";
 import Services from "../pages/Services";
 import NotFound from "../pages/NotFound";
+import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 export const router = createBrowserRouter([
   {
@@ -25,11 +27,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/services/:id",
-        element: (
-          <PrivateRoute>
-            <ServiceDetails />
-          </PrivateRoute>
-        ),
+        element: <ServiceDetails />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/contact-us",
+        element: <ContactUs />,
       },
       {
         path: "/profile",
